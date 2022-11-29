@@ -37,7 +37,7 @@ https://napari.org/stable/plugins/index.html
 
 ## Installation
 Not on PyPi yet.
-Either clone, `cd` and `pip install .` or `pip install git+<GITURL>`
+Either clone, `cd` and `pip install .` or `pip install git+https://github.com/mesoSPIM/mesoSPIM-lazy-loader.git`
 
 
 
