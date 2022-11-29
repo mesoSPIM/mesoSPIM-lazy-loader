@@ -1,5 +1,11 @@
 # mesoSPIM-lazy-loader
 
+<p align="center">
+<img width="1200" src="images/meso_lazy_screenshot.png">
+</p>
+
+
+
 [![License GNU GPL v3.0](https://img.shields.io/pypi/l/mesoSPIM-lazy-loader.svg?color=green)](https://github.com/raacampbell/mesoSPIM-lazy-loader/raw/main/LICENSE)
 [![PyPI](https://img.shields.io/pypi/v/mesoSPIM-lazy-loader.svg?color=green)](https://pypi.org/project/mesoSPIM-lazy-loader)
 [![Python Version](https://img.shields.io/pypi/pyversions/mesoSPIM-lazy-loader.svg?color=green)](https://python.org)
@@ -7,7 +13,15 @@
 [![codecov](https://codecov.io/gh/raacampbell/mesoSPIM-lazy-loader/branch/main/graph/badge.svg)](https://codecov.io/gh/raacampbell/mesoSPIM-lazy-loader)
 [![napari hub](https://img.shields.io/endpoint?url=https://api.napari-hub.org/shields/mesoSPIM-lazy-loader)](https://napari-hub.org/plugins/mesoSPIM-lazy-loader)
 
-Lazy-load all acquired channels from a mesoSPIM acquisition.
+Lazy-loader for mesoSPIM acquisitions using napari.
+This plugin lazy-loads all acquired channels from a mesoSPIM acquisition.
+Once installed, you can open a folder containing a mesoSPIM acquisition and the plugin will lazy load it.
+All channels are loaded and automatically color-coded nicely.
+
+### Known issues
+* Works only with TIFF stacks that have associated meta-data files
+* Will load both shutters and overlay. (TODO: add a widget to allow switching between shutters using a button)
+* Since it lazy-loads each plane as required using dask, it will cause napari to freeze if the user requests a 3D view or a reslice view. Some solution is needed for this. e.g. disable the buttons.
 
 ----------------------------------
 
@@ -22,18 +36,15 @@ https://napari.org/stable/plugins/index.html
 -->
 
 ## Installation
-
-You can install `mesoSPIM-lazy-loader` via [pip]:
-
-    pip install mesoSPIM-lazy-loader
-
+Not on PyPi yet.
+Either clone, `cd` and `pip install .` or `pip install git+<GITURL>`
 
 
 
 ## Contributing
 
-Contributions are very welcome. Tests can be run with [tox], please ensure
-the coverage at least stays the same before you submit a pull request.
+Contributions are very welcome.
+You can set up tests with [tox] (none yet), please ensure the coverage at least stays the same before you submit a pull request.
 
 ## License
 

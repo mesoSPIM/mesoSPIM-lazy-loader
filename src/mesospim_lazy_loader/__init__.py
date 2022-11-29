@@ -1,7 +1,7 @@
 __version__ = "0.0.1"
 
-from ._reader import napari_get_reader
+from .read_sample import mesoSPIM_sample_read_dir
 
 __all__ = (
-    "napari_get_reader",
+    "mesoSPIM_sample_read_dir",
     )

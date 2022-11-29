@@ -3,9 +3,9 @@ display_name: mesoSPIM lazy loader
 contributions:
   commands:
     - id: mesoSPIM-lazy-loader.get_reader
-      python_name: mesospim_lazy_loader._reader:napari_get_reader
+      python_name: mesospim_lazy_loader.read_sample:mesoSPIM_sample_read_dir
       title: Open data with mesoSPIM lazy loader
   readers:
     - command: mesoSPIM-lazy-loader.get_reader
-      accepts_directories: false
-      filename_patterns: ['*.npy']
+      accepts_directories: true
+      filename_patterns: ['*.tif','*.tiff']
