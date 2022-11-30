@@ -37,7 +37,16 @@ https://napari.org/stable/plugins/index.html
 
 ## Installation
 Not on PyPi yet.
-Either clone, `cd` and `pip install .` or `pip install git+https://github.com/mesoSPIM/mesoSPIM-lazy-loader.git`
+Either:
+
+* clone, `cd` to the downloaded directory and `pip install .` 
+* or `pip install git+https://github.com/mesoSPIM/mesoSPIM-lazy-loader.git@main` If you get an error about git being a missing command, you likely just need to first `conda install git`
+
+If you don't already have a suitable environment for `napari`, you can create one with:
+```
+conda create -y -n napari-env -c conda-forge python=3.9
+conda activate napari-env
+```
 
 
 
