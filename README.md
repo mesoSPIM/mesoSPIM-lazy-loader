@@ -1,11 +1,11 @@
 # mesoSPIM-lazy-loader
 
 
-[![License GNU GPL v3.0](https://img.shields.io/pypi/l/mesoSPIM-lazy-loader.svg?color=green)](https://github.com/mesoSPIM/mesoSPIM-lazy-loader/raw/main/LICENSE)
-[![Python Version](https://img.shields.io/pypi/pyversions/mesoSPIM-lazy-loader.svg?color=green)](https://python.org)
-[![tests](https://github.com/mesoSPIM/mesoSPIM-lazy-loader/workflows/tests/badge.svg)](https://github.com/raacampbell/mesoSPIM-lazy-loader/actions)
+[![tests](https://github.com/mesoSPIM/mesoSPIM-lazy-loader/workflows/tests/badge.svg)](https://github.com/mesoSPIM/mesoSPIM-lazy-loader/actions)
 
 <!--
+[![License GNU GPL v3.0](https://img.shields.io/pypi/l/mesoSPIM-lazy-loader.svg?color=green)](https://github.com/mesoSPIM/mesoSPIM-lazy-loader/raw/main/LICENSE)
+[![Python Version](https://img.shields.io/pypi/pyversions/mesoSPIM-lazy-loader.svg?color=green)](https://python.org)
 [![PyPI](https://img.shields.io/pypi/v/mesoSPIM-lazy-loader.svg?color=green)](https://pypi.org/project/mesoSPIM-lazy-loader)
 [![codecov](https://codecov.io/gh/mesoSPIM/mesoSPIM-lazy-loader/branch/main/graph/badge.svg)](https://codecov.io/gh/mesoSPIM/mesoSPIM-lazy-loader)
 [![napari hub](https://img.shields.io/endpoint?url=https://api.napari-hub.org/shields/mesoSPIM-lazy-loader)](https://napari-hub.org/plugins/mesoSPIM-lazy-loader)
