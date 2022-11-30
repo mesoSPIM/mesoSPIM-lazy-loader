@@ -16,9 +16,11 @@
 </p>
 
 Lazy-loader for mesoSPIM acquisitions using napari.
-This plugin lazy-loads all mesoSPIM TIFF stacks in a directory, color-coding channels according to the excitation laser.
+This plugin simply lazy-loads all mesoSPIM TIFF stacks in a directory, color-coding channels according to the excitation laser.
+The goal is to provide a quick way of visualising **non-tiled** acquisitions. 
 Once installed, you can open a folder containing a mesoSPIM acquisition and the plugin will lazy load it.
 For best results organise your acquisitions so each folder contains data from a single resolution and view (i.e. data from different orientations or locations should be in different directories).
+The plan is to extend the plugin by providing tools to crop stacks, switch between left and right lightsheets, and merge left and right lightsheets.
 This [napari] plugin was generated with [Cookiecutter] using [@napari]'s [cookiecutter-napari-plugin] template.
 
 ### Known issues
