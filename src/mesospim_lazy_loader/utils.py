@@ -24,7 +24,7 @@ def is_mesoSPIM_dir(path_to_test):
 
     """
 
-    glob_to_search = os.path.join(path_to_test, '*_meta*')
+    glob_to_search = os.path.join(path_to_test, '*tiff_meta*') # So only handless TIFF stacks
     return file_glob_exist(glob_to_search)
 
 
@@ -84,7 +84,7 @@ def return_mesoSPIM_files_in_path(t_path):
 
 
     t_path = os.path.abspath(t_path)
-    meta_data_files = glob(os.path.join(t_path, '*_meta*'))
+    meta_data_files = glob(os.path.join(t_path, '*tiff_meta*')) # So only handless TIFF stacks
     out = []
 
     if len(meta_data_files) == 0:
