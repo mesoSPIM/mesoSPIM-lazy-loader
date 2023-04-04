@@ -46,7 +46,7 @@ conda create -y -n napari-env -c conda-forge python=3.9
 conda activate napari-env
 ```
 
-This plugin is not yet on PyPi or [napari hub]((https://napari-hub.org) so you should do **either**:
+This plugin is not yet on PyPi or [napari hub](https://napari-hub.org) so you should do **either**:
 
 * `pip install git+https://github.com/mesoSPIM/mesoSPIM-lazy-loader.git@main` (If you get an error about git being a missing command, you likely just need to first `conda install git`)
 * **or** download from GitHub, `cd` to the downloaded directory, and `pip install .`
