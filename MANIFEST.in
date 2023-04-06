@@ -4,6 +4,8 @@ include mesospim_lazy_loader/napari.yaml
 
 
 exclude .pre-commit-config.yaml
+exclude .napari-hub/*
+exclude images/*
 exclude tox.ini
 recursive-exclude * __pycache__
 recursive-exclude * *.py[co]
