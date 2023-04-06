@@ -1,12 +1,103 @@
+[project]
+name = "mesoSPIM-lazy-loader"
+authors = [{name = "Rob Campbell", email= "git@raacampbell.com"}]
+description = "Lazy loader napari plugin for mesoSPIM datasets."
+readme = "README.md"
+requires-python = ">=3.8.0"
+dynamic = ["version"]
+license = {text = "BSD-3-Clause"}
+classifiers = [
+    "Framework :: napari", 
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Operating System :: OS Independent",
+    "License :: OSI Approved :: BSD License",
+]
+dependencies = [
+    "napari[all]",
+    "numpy",
+    "zarr"
+    ]
+
 [build-system]
-requires = ["setuptools>=42.0.0", "wheel"]
+requires = [
+    "setuptools>=45",
+    "wheel",
+    "setuptools_scm[toml]>=6.2",
+]
+
 build-backend = "setuptools.build_meta"
 
+[tool.setuptools_scm]
+
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+  "pytest-cov",
+  "coverage",
+  "tox",
+  "black",
+  "mypy",
+  "pre-commit",
+  "ruff",
+  "setuptools_scm",
+]
+
+[project.entry-points."napari.manifest"]
+mesoSPIM-lazy-loader = "mesospim_lazy_loader:napari.yaml"
 
 
 [tool.black]
-line-length = 79
+target-version = ['py38', 'py39', 'py310']
+skip-string-normalization = false
+line-length = 90
+exclude = '''
+(
+  /(
+      \.eggs
+    | \.git
+    | \.hg
+    | \.mypy_cache
+    | _build
+    | build
+    | dist
+  )/
+)
+'''
 
-[tool.isort]
-profile = "black"
-line_length = 79
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["mesospim_lazy_loader*"]
+exclude = ["tests*"]
+
+[tool.pytest.ini_options]
+addopts = "--cov=mesospim_lazy_loader"
+
+
+[tool.check-manifest]
+ignore = [
+  "*.yaml",
+  "tox.ini",
+  "tests/*",
+  "tests/test_unit/*",
+  "tests/test_integration/*",
+  ".flake8"
+]
+
+[tool.ruff]
+line-length = 90
+exclude = ["__init__.py","build",".eggs"]
+select = ["I", "E", "F"]
+fix = true
+
+#[tool.cibuildwheel]
+#build = "cp38-* cp39-* cp310-*"
+
+#[tool.cibuildwheel.macos]
+#archs = ["x86_64", "arm64"]
