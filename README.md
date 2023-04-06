@@ -44,14 +44,25 @@ conda create -y -n napari-env -c conda-forge python=3.9
 conda activate napari-env
 ```
 
+On Apple Silicon you likely **must** do it the above way [or the install will fail](https://forum.image.sc/t/issue-with-downloading-napari-on-mac-m1-chip/53961/15).
+
 This plugin is not yet on PyPi or [napari hub]((https://napari-hub.org) so you should do **either**:
 
 * `pip install git+https://github.com/mesoSPIM/mesoSPIM-lazy-loader.git@main` (If you get an error about git being a missing command, you likely just need to first `conda install git`)
 * **or** download from GitHub, `cd` to the downloaded directory, and `pip install .`
 
+### Install failure on Apple Silicon
+If the installation stalls on Apple Silicon at `Preparing metadata (pyproject.toml) ... ` you can try `ctrl-c` to break out and append `--config-settings --confirm-license= --verbose` to your `pip` command. e.g.
+
+```
+pip install git+https://github.com/mesoSPIM/mesoSPIM-lazy-loader.git@main --config-settings --confirm-license= --verbose
+```
+
+The failure is because PyQt5 has asked for a response to a licence agreement and was watiting for a reply.
+
+
 ## Instructions
 Use the plugin to load a **directory** containing mesoSPIM tiff files. 
-
 
 
 ## Contributing
