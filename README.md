@@ -19,7 +19,7 @@ Lazy-loader for mesoSPIM acquisitions using napari.
 This plugin lazy-loads all mesoSPIM TIFF stacks in a directory, color-coding channels according to the excitation laser.
 Once installed, you can open a folder containing a mesoSPIM acquisition and the plugin will lazy load it.
 For best results organise your acquisitions so each folder contains data from a single resolution and view (i.e. data from different orientations or locations should be in different directories).
-This [napari] plugin was generated with [Cookiecutter] using [@napari]'s [cookiecutter-napari-plugin] template.
+
 
 ### Known issues
 * Works only with TIFF stacks that have associated meta-data files
@@ -48,6 +48,9 @@ This plugin is not yet on PyPi or [napari hub]((https://napari-hub.org) so you s
 
 * `pip install git+https://github.com/mesoSPIM/mesoSPIM-lazy-loader.git@main` (If you get an error about git being a missing command, you likely just need to first `conda install git`)
 * **or** download from GitHub, `cd` to the downloaded directory, and `pip install .`
+
+## Instructions
+Use the plugin to load a **directory** containing mesoSPIM tiff files. 
 
 
 

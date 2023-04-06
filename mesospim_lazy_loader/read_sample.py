@@ -1,9 +1,10 @@
 import os
 
 import dask.array
+import mesospim_python_tools as mpt
 from tifffile import tifffile
 
-from mesospim_lazy_loader import utils
+from . import utils
 
 
 def mesoSPIM_sample_read_dir(path):
@@ -19,7 +20,7 @@ def mesoSPIM_sample_read_dir(path):
         If the path is a recognized format, return a function that accepts the
         same path or list of paths, and returns a list of layer data tuples.
     """
-    if isinstance(path, str) and utils.is_mesoSPIM_dir(path):
+    if isinstance(path, str) and mpt.io.is_mesoSPIM_dir(path):
         print("Found mesoSPIM data")
         return reader_function
     else:
@@ -49,7 +50,7 @@ def reader_function(path):
     print("Loading mesoSPIM stacks from directory")
 
     layers = []
-    files = utils.return_mesoSPIM_files_in_path(path)
+    files = mpt.io.return_mesoSPIM_files_in_path(path)
 
     if len(files) == 0:
         return layers
