@@ -96,6 +96,9 @@ exclude = ["__init__.py","build",".eggs"]
 select = ["I", "E", "F"]
 fix = true
 
+[tool.mypy]
+ignore_missing_imports = true
+
 #[tool.cibuildwheel]
 #build = "cp38-* cp39-* cp310-*"
 

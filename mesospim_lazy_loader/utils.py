@@ -1,9 +1,11 @@
 import os
 from glob import glob
+
 from mesospim_lazy_loader import mesospim_metadata_reader
 
+
 def is_mesoSPIM_dir(path_to_test):
-    """ Return true if path_to_test contains mesoSPIM data
+    """Return true if path_to_test contains mesoSPIM data
 
     Purpose
     -------
@@ -24,12 +26,14 @@ def is_mesoSPIM_dir(path_to_test):
 
     """
 
-    glob_to_search = os.path.join(path_to_test, '*tiff_meta*') # So only handless TIFF stacks
+    glob_to_search = os.path.join(
+        path_to_test, "*tiff_meta*"
+    )  # So only handless TIFF stacks
     return file_glob_exist(glob_to_search)
 
 
 def file_glob_exist(t_path):
-    """ Test whether a particular file path (which can include a wildcard) exists
+    """Test whether a particular file path (which can include a wildcard) exists
 
     Purpose
     -------
@@ -57,7 +61,7 @@ def file_glob_exist(t_path):
 
 
 def return_mesoSPIM_files_in_path(t_path):
-    """ Return a list of dictionaries containing the files which are mesoSPIM acquisitions
+    """Return a list of dictionaries containing the files which are mesoSPIM acquisitions
 
     Purpose
     -------
@@ -82,31 +86,31 @@ def return_mesoSPIM_files_in_path(t_path):
     }
     """
 
-
     t_path = os.path.abspath(t_path)
-    meta_data_files = glob(os.path.join(t_path, '*tiff_meta*')) # So only handless TIFF stacks
+    meta_data_files = glob(
+        os.path.join(t_path, "*tiff_meta*")
+    )  # So only handless TIFF stacks
     out = []
 
     if len(meta_data_files) == 0:
         return out
-
 
     for t_file in meta_data_files:
         split_path = os.path.split(t_file)
 
         out.append(
             {
-            'image_file_name': split_path[1].replace("_meta.txt", ""),
-            'absolute_path_to_file': split_path[0],
-            'meta_data': mesospim_metadata_reader.read(t_file)
+                "image_file_name": split_path[1].replace("_meta.txt", ""),
+                "absolute_path_to_file": split_path[0],
+                "meta_data": mesospim_metadata_reader.read(t_file),
             }
-            )
+        )
 
     return out
 
 
 def laser_wavelength_to_colormap(laser_wavelength):
-    """ Convert a laser wavelength to a napari colormap name
+    """Convert a laser wavelength to a napari colormap name
 
     Purpose
     -------
@@ -126,15 +130,13 @@ def laser_wavelength_to_colormap(laser_wavelength):
     String that defines a napari colormap name. e.g. red
     """
 
-
-    if laser_wavelength == '647 nm':
-        colormap = 'red'
-    elif laser_wavelength == '561 nm':
-        colormap = 'green'
-    elif laser_wavelength == '488 nm':
-        colormap = 'blue'
-    elif laser_wavelength == '405 nm':
-        colormap = 'magenta'
+    if laser_wavelength == "647 nm":
+        colormap = "red"
+    elif laser_wavelength == "561 nm":
+        colormap = "green"
+    elif laser_wavelength == "488 nm":
+        colormap = "blue"
+    elif laser_wavelength == "405 nm":
+        colormap = "magenta"
 
     return colormap
-

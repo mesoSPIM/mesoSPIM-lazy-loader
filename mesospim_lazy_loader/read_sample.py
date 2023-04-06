@@ -1,11 +1,13 @@
-
 import os
-from mesospim_lazy_loader import utils
-from tifffile import tifffile
+
 import dask.array
+from tifffile import tifffile
+
+from mesospim_lazy_loader import utils
+
 
 def mesoSPIM_sample_read_dir(path):
-    """ mesoSPIM reader conribution
+    """mesoSPIM reader conribution
 
     Parameters
     ----------
@@ -18,11 +20,10 @@ def mesoSPIM_sample_read_dir(path):
         same path or list of paths, and returns a list of layer data tuples.
     """
     if isinstance(path, str) and utils.is_mesoSPIM_dir(path):
-        print('Found mesoSPIM data')
+        print("Found mesoSPIM data")
         return reader_function
     else:
         return None
-
 
 
 def reader_function(path):
@@ -45,35 +46,36 @@ def reader_function(path):
         layer_type=="image" if not provided
     """
 
-
     print("Loading mesoSPIM stacks from directory")
 
     layers = []
-    files  = utils.return_mesoSPIM_files_in_path(path)
+    files = utils.return_mesoSPIM_files_in_path(path)
 
     if len(files) == 0:
         return layers
 
     for t_file in files:
-
         # Create a dask array for this file
-        full_fname = os.path.join(t_file['absolute_path_to_file'], t_file['image_file_name'])
+        full_fname = os.path.join(
+            t_file["absolute_path_to_file"], t_file["image_file_name"]
+        )
         zarr_store = tifffile.imread(full_fname, aszarr=True)
         data = dask.array.from_zarr(zarr_store)
-
 
         layers.append(
             (
                 data,
-                {"name": t_file['image_file_name'],
-                 "rgb": False,
-                 "blending": "additive",
-                 "colormap": utils.laser_wavelength_to_colormap(t_file['meta_data']['CFG']['Laser']),
-                 "contrast_limits": [0,2**13]
-                 },
-                "image"
+                {
+                    "name": t_file["image_file_name"],
+                    "rgb": False,
+                    "blending": "additive",
+                    "colormap": utils.laser_wavelength_to_colormap(
+                        t_file["meta_data"]["CFG"]["Laser"]
+                    ),
+                    "contrast_limits": [0, 2**13],
+                },
+                "image",
             )
         )
-
 
     return layers
