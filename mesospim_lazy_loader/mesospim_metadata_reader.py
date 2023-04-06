@@ -3,12 +3,12 @@ from datetime import datetime
 
 
 def read(meta_filename):
-    """Read mesoSPIM metadata into a dictionary, processing some field for 
+    """Read mesoSPIM metadata into a dictionary, processing some field for
        ease of handling
 
     Purpose
     -------
-    mesoSPIM metadata are stored in plain text files with a custom format that goes 
+    mesoSPIM metadata are stored in plain text files with a custom format that goes
     along these lines:
 
     [SECTION NAME]
@@ -17,7 +17,7 @@ def read(meta_filename):
 
     So all section names and keys and square brackets and there is no consistency
     regarding whether or not these have underscores or spaces. This function
-    converts everything to underscores. It also imports numeric values as numbers 
+    converts everything to underscores. It also imports numeric values as numbers
     rather than strings. All dates are converted into a datetime object.
 
 
