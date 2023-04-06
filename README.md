@@ -62,7 +62,7 @@ The failure is because PyQt5 has asked for a response to a licence agreement and
 
 
 ## Instructions
-Use the plugin to load a **directory** containing mesoSPIM tiff files. 
+Use the plugin to load a **directory** containing mesoSPIM tiff files.
 
 
 ## Contributing
